@@ -252,6 +252,23 @@
             position: relative;
         }
         
+        /* Location Links */
+        .location-link {
+            color: var(--dark-gold);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .location-link:hover {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+        
+        .pin-emoji {
+            margin-left: 5px;
+        }
+        
         /* Maps */
         .map-container {
             margin: 40px auto;
@@ -389,8 +406,9 @@
         <!-- Wedding Options -->
         <div class="wedding-options">
             <a href="#christian-wedding" class="wedding-card">
-                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                     alt="Christian Wedding Church" 
+                <!-- Authentic Kerala Christian Wedding Image -->
+                <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                     alt="Traditional Kerala Christian Wedding" 
                      loading="lazy">
                 <div class="card-overlay">
                     <h2 class="card-title">Christian Wedding</h2>
@@ -399,8 +417,9 @@
             </a>
             
             <a href="#hindu-wedding" class="wedding-card">
-                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                     alt="Hindu Wedding Mandap" 
+                <!-- Authentic Kerala Hindu Wedding Image -->
+                <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                     alt="Traditional Kerala Hindu Wedding" 
                      loading="lazy">
                 <div class="card-overlay">
                     <h2 class="card-title">Hindu Wedding</h2>
@@ -437,12 +456,22 @@
                 
                 <div class="detail-item text-center">
                     <div class="detail-label">Church Ceremony</div>
-                    <p>St. George Church Veloor</p>
+                    <p>
+                        <a href="https://goo.gl/maps/examplechristian" class="location-link" target="_blank">
+                            St. George Church Veloor
+                            <span class="pin-emoji">📍</span>
+                        </a>
+                    </p>
                 </div>
                 
                 <div class="detail-item text-center">
                     <div class="detail-label">Reception to Follow</div>
-                    <p>St. George Parish Hall Cheruthotukunnel</p>
+                    <p>
+                        <a href="https://goo.gl/maps/examplereception" class="location-link" target="_blank">
+                            St. George Parish Hall Cheruthotukunnel
+                            <span class="pin-emoji">📍</span>
+                        </a>
+                    </p>
                 </div>
                 
                 <div class="map-title">Church Location</div>
@@ -474,7 +503,12 @@
                 
                 <div class="detail-item text-center">
                     <div class="detail-label">Venue</div>
-                    <p>Anjali Auditorium, Omallur<br>Pathanamthitta</p>
+                    <p>
+                        <a href="https://goo.gl/maps/examplehindu" class="location-link" target="_blank">
+                            Anjali Auditorium, Omallur, Pathanamthitta
+                            <span class="pin-emoji">📍</span>
+                        </a>
+                    </p>
                 </div>
                 
                 <div class="map-title">Wedding Venue</div>
