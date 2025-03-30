@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayswarya & Thomas' Wedding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4a373;
+            --dark-gold: #b6452c;
+            --cream: #fff9f5;
+            --light-bg: #faf7f2;
+            --text: #555;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--gold);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #999;
+            margin-bottom: 30px;
+        }
+        
+        .divider {
+            width: 100px;
+            height: 1px;
+            background: var(--gold);
+            margin: 20px auto;
+            transition: width 0.5s ease;
+        }
+        
+        header:hover .divider {
+            width: 150px;
+        }
+        
+        .wedding-options {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 80px;
+            flex-wrap: wrap;
+        }
+        
+        .wedding-card {
+            width: 400px;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: scale(0.95);
+            animation: cardEntrance 0.8s ease forwards;
+            animation-delay: 0.3s;
+        }
+        
+        @keyframes cardEntrance {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .wedding-card:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        
+        .wedding-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .wedding-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .wedding-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 30px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .wedding-card:hover .card-overlay {
+            padding-bottom: 40px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        }
+        
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+        
+        .wedding-card:hover .card-title {
+            transform: translateY(-5px);
+        }
+        
+        .card-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+        
+        .wedding-card:hover .card-subtitle {
+            transform: translateY(-5px);
+        }
+        
+        .wedding-details {
+            display: none;
+            padding: 60px 0;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .wedding-details h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 400;
+        }
+        
+        .detail-section {
+            background: white;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+        
+        .detail-section:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+        
+        .detail-item {
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .detail-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            color: #777;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .christian-date {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            margin: 30px 0;
+        }
+        
+        .christian-date .month {
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+        
+        .christian-date .day {
+            font-size: 4rem;
+            line-height: 1;
+            margin: 10px 0;
+        }
+        
+        .christian-date .year {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .christian-date .time {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+        
+        .hindu-theme {
+            background: var(--cream);
+            border-top: 3px solid var(--gold);
+            border-bottom: 3px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hindu-theme::before, .hindu-theme::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--gold),
+                var(--gold) 10px,
+                #e6c8a3 10px,
+                #e6c8a3 20px
+            );
+        }
+        
+        .hindu-theme::before {
+            top: 0;
+        }
+        
+        .hindu-theme::after {
+            bottom: 0;
+        }
+        
+        .invitation-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .traditional-greeting {
+            font-style: italic;
+            color: var(--dark-gold);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .wedding-of {
+            font-size: 1.5rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+        }
+        
+        .couple-names {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .bride-name, .groom-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #333;
+            line-height: 1.3;
+        }
+        
+        .and-symbol {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin: 10px 0;
+        }
+        
+        .floral-divider {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0,5 Q25,10 50,5 T100,5" fill="none" stroke="%23d4a373" stroke-width="0.5"/></svg>') center no-repeat;
+            height: 20px;
+            border: none;
+            margin: 30px auto;
+        }
+        
+        .hindu-date {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            margin: 30px 0;
+        }
+        
+        .hindu-date .month {
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+        
+        .hindu-date .day {
+            font-size: 4rem;
+            line-height: 1;
+            margin: 10px 0;
+        }
+        
+        .hindu-date .year {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .hindu-date .weekday {
+            font-size: 1.2rem;
+            color: var(--dark-gold);
+            margin-bottom: 5px;
+        }
+        
+        .hindu-date .time {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+        
+        .venue {
+            margin-top: 40px;
+        }
+        
+        .venue p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .back-btn:hover {
+            color: var(--dark-gold);
+            text-decoration: underline;
+            transform: translateX(-5px);
+        }
+        
+        .back-btn::after {
+            content: "→";
+            position: absolute;
+            right: -20px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover::after {
+            right: -25px;
+            opacity: 1;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        /* Countdown Timer */
+        .countdown-container {
+            text-align: center;
+            margin: 40px auto;
+            max-width: 600px;
+            padding: 30px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.7s;
+        }
+        
+        .countdown-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .countdown-item {
+            background: var(--cream);
+            padding: 15px;
+            border-radius: 5px;
+            min-width: 80px;
+        }
+        
+        .countdown-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--dark-gold);
+            font-weight: 500;
+        }
+        
+        .countdown-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text);
+        }
+        
+        /* Dual Countdown Layout */
+        .dual-countdown {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .wedding-countdown {
+            width: 48%;
+        }
+        
+        /* Google Maps */
+        .map-container {
+            margin: 40px auto;
+            max-width: 800px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.9s;
+        }
+        
+        .map-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+        }
+        
+        @media (max-width: 900px) {
+            .wedding-options {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .wedding-card {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .detail-section {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+            }
+            
+            .dual-countdown {
+                flex-direction: column;
+            }
+            
+            .wedding-countdown {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            
+            .map-container {
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ayswarya & Thomas</h1>
+            <div class="subtitle">Invite you to celebrate their love</div>
+            <div class="divider"></div>
+        </header>
+        
+        <!-- Dual Countdown Timer -->
+        <div class="countdown-container">
+            <div class="countdown-title">Counting down to our weddings</div>
+            <div class="dual-countdown">
+                <div class="wedding-countdown">
+                    <div class="countdown-title">Christian Wedding</div>
+                    <div class="countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="christian-days">00</div>
+                            <div class="countdown-label">Days</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="christian-hours">00</div>
+                            <div class="countdown-label">Hours</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="christian-minutes">00</div>
+                            <div class="countdown-label">Minutes</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wedding-countdown">
+                    <div class="countdown-title">Hindu Wedding</div>
+                    <div class="countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hindu-days">00</div>
+                            <div class="countdown-label">Days</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hindu-hours">00</div>
+                            <div class="countdown-label">Hours</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hindu-minutes">00</div>
+                            <div class="countdown-label">Minutes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="wedding-options">
+            <a href="#christian-wedding" class="wedding-card">
+                <!-- Kerala Syrian Christian Church Image -->
+                <img src="https://images.unsplash.com/photo-1581833971351-1d8d5c003d9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Christian Wedding">
+                <div class="card-overlay">
+                    <h2 class="card-title">Christian Wedding</h2>
+                    <div class="card-subtitle">May 4, 2025 | 11:00 AM</div>
+                </div>
+            </a>
+            
+            <a href="#hindu-wedding" class="wedding-card">
+                <!-- Traditional Kerala Hindu Wedding Image -->
+                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Hindu Wedding">
+                <div class="card-overlay">
+                    <h2 class="card-title">Hindu Wedding</h2>
+                    <div class="card-subtitle">April 28, 2025 | 12:35 PM</div>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Christian Wedding Details -->
+        <div id="christian-wedding" class="wedding-details">
+            <h2>Christian Wedding Ceremony</h2>
+            
+            <div class="detail-section">
+                <div class="detail-item">
+                    <div class="detail-label">Parents of the Groom</div>
+                    <p>Mrs. Sali Kuriakose & Mr. Kuriakose K V<br>
+                    Kaniyathu House, Puthencruz, Ernakulam</p>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-label">Parents of the Bride</div>
+                    <p>Mrs. Jayasree R Pillai & Mr. Rajendran Pillai<br>
+                    Pezhumkattil Tharakam(H), Malayalapuzha, Pathanamthitta</p>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div class="detail-item text-center">
+                    <div class="christian-date">
+                        <div class="month">MAY</div>
+                        <div class="day">4</div>
+                        <div class="year">2025</div>
+                        <div class="time">11:00 AM</div>
+                    </div>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div class="detail-item text-center">
+                    <div class="detail-label">Church Ceremony</div>
+                    <p>St. George Church Veloor</p>
+                </div>
+                
+                <div class="detail-item text-center">
+                    <div class="detail-label">Reception to Follow</div>
+                    <p>St. George Parish Hall Cheruthotukunnel</p>
+                </div>
+                
+                <!-- Christian Wedding Map -->
+                <div class="map-title">Church Location</div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15784.21520598153!2d76.459976!3d8.780506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05f7f3a80f3d49%3A0x2a7d4a2b9e3a1b5d!2sSt.%20George%20Church%20Veloor!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            
+            <a href="#" class="back-btn">Back to main</a>
+        </div>
+        
+        <!-- Hindu Wedding Details -->
+        <div id="hindu-wedding" class="wedding-details">
+            <h2>Hindu Wedding Ceremony</h2>
+            
+            <div class="detail-section hindu-theme">
+                <div class="invitation-header">
+                    <div class="traditional-greeting">You are gracefully invited to witness our</div>
+                    <div class="wedding-of">Wedding of</div>
+                </div>
+                
+                <div class="couple-names">
+                    <div class="bride-name">Ayswarya Sreeraj</div>
+                    <div class="and-symbol">&</div>
+                    <div class="groom-name">Thomas Kuriakose</div>
+                </div>
+                
+                <div class="divider floral-divider"></div>
+                
+                <div class="detail-item text-center">
+                    <div class="hindu-date">
+                        <div class="month">APRIL</div>
+                        <div class="day">28</div>
+                        <div class="year">2025</div>
+                        <div class="weekday">Monday</div>
+                        <div class="time">12:35 - 12:55 PM</div>
+                    </div>
+                </div>
+                
+                <div class="divider floral-divider"></div>
+                
+                <div class="detail-item text-center venue">
+                    <div class="detail-label">Venue</div>
+                    <p>Anjali Auditorium, Omallur<br>Pathanamthitta</p>
+                </div>
+                
+                <!-- Hindu Wedding Map -->
+                <div class="map-title">Wedding Venue</div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15784.21520598153!2d76.459976!3d8.780506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05f7f3a80f3d49%3A0x2a7d4a2b9e3a1b5d!2sAnjali%20Auditorium%20Omallur!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            
+            <a href="#" class="back-btn">Back to main</a>
+        </div>
+        
+        <footer>
+            We look forward to celebrating with you<br>
+            With love, Ayswarya & Thomas
+        </footer>
+    </div>
+    
+    <script>
+        // Countdown Timers
+        function updateCountdowns() {
+            // Christian Wedding Date: May 4, 2025 11:00 AM
+            const christianDate = new Date("May 4, 2025 11:00:00").getTime();
+            
+            // Hindu Wedding Date: April 28, 2025 12:35 PM
+            const hinduDate = new Date("April 28, 2025 12:35:00").getTime();
+            
+            const now = new Date().getTime();
+            
+            // Christian Wedding Countdown
+            const christianDistance = christianDate - now;
+            const christianDays = Math.floor(christianDistance / (1000 * 60 * 60 * 24));
+            const christianHours = Math.floor((christianDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const christianMinutes = Math.floor((christianDistance % (1000 * 60 * 60)) / (1000 * 60));
+            
+            document.getElementById("christian-days").innerHTML = christianDays.toString().padStart(2, "0");
+            document.getElementById("christian-hours").innerHTML = christianHours.toString().padStart(2, "0");
+            document.getElementById("christian-minutes").innerHTML = christianMinutes.toString().padStart(2, "0");
+            
+            // Hindu Wedding Countdown
+            const hinduDistance = hinduDate - now;
+            const hinduDays = Math.floor(hinduDistance / (1000 * 60 * 60 * 24));
+            const hinduHours = Math.floor((hinduDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const hinduMinutes = Math.floor((hinduDistance % (1000 * 60 * 60)) / (1000 * 60));
+            
+            document.getElementById("hindu-days").innerHTML = hinduDays.toString().padStart(2, "0");
+            document.getElementById("hindu-hours").innerHTML = hinduHours.toString().padStart(2, "0");
+            document.getElementById("hindu-minutes").innerHTML = hinduMinutes.toString().padStart(2, "0");
+            
+            if (christianDistance < 0) {
+                document.getElementById("christian-days").innerHTML = "00";
+                document.getElementById("christian-hours").innerHTML = "00";
+                document.getElementById("christian-minutes").innerHTML = "00";
+            }
+            
+            if (hinduDistance < 0) {
+                document.getElementById("hindu-days").innerHTML = "00";
+                document.getElementById("hindu-hours").innerHTML = "00";
+                document.getElementById("hindu-minutes").innerHTML = "00";
+            }
+        }
+        
+        const countdownTimer = setInterval(updateCountdowns, 1000);
+        updateCountdowns();
+        
+        // Wedding Card Navigation
+        document.querySelectorAll('.wedding-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                
+                document.querySelectorAll('.wedding-details').forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                document.querySelector(targetId).style.display = 'block';
+                document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        
+        // Back Button Navigation
+        document.querySelectorAll('.back-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelectorAll('.wedding-details').forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+        
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const mapContainers = document.querySelectorAll('.map-container');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            mapContainers.forEach(container => {
+                observer.observe(container);
+            });
+        });
+    </script>
+</body>
+</html>
