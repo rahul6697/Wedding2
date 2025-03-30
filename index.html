@@ -114,19 +114,13 @@
             gap: 30px;
             margin-bottom: 60px;
         }
-
+        
         /* Make sure Hindu wedding appears on left and Christian on right */
-        .countdown-box, .wedding-card {
-            flex-basis: calc(50% - 15px);    /* Adjust as needed to fit the card perfectly in half of screen. Change '15px' based on your design requirements. */
-            order: initial !important;   /* This will remove the media query and force a new layout for all devices */
+        .countdown-box:nth-child(1) {
+            order: 1; /* Hindu wedding */
         }
-        
-        .wedding-card.hindu-wedding {
-            order: 1;
-        }
-        
-        .wedding-card.christian-wedding {
-            order: 2;
+        .countdown-box:nth-child(2) {
+            order: 2; /* Christian wedding */
         }
         
         .countdown-box {
@@ -220,8 +214,9 @@
         
         @media (max-width: 768px) {
             .countdown-box, .wedding-card {
-                flex-basis: 100%;    /* Stack vertically on mobile */
+                order: initial !important; /* Stack vertically on mobile */
             }
+        }
         
         .wedding-card {
             width: 100%;
@@ -489,10 +484,10 @@
             <div class="divider"></div>
         </header>
         
-        <!-- Countdown Section - Order reversed -->
+        <!-- Countdown Section - Hindu first -->
         <section class="countdown-section">
             <div class="countdown-container">
-                <!-- Hindu Wedding Countdown now comes first -->
+                <!-- Hindu Wedding Countdown - LEFT SIDE -->
                 <div class="countdown-box">
                     <div class="countdown-title">Hindu Wedding</div>
                     <div class="countdown">
@@ -517,7 +512,7 @@
                     </div>
                 </div>
                 
-                <!-- Christian Wedding Countdown now comes second -->
+                <!-- Christian Wedding Countdown - RIGHT SIDE -->
                 <div class="countdown-box">
                     <div class="countdown-title">Christian Wedding</div>
                     <div class="countdown">
@@ -544,11 +539,11 @@
             </div>
         </section>
         
-        <!-- Wedding Options - Order reversed -->
+        <!-- Wedding Options - Hindu first -->
         <div class="wedding-options">
-            <!-- Hindu Wedding Card now comes first -->
-            <a href="#hindu-wedding" class="wedding-card">
-                <img src="https://lh3.googleusercontent.com/d/19X0BVlUrlaBokhJc-2eUxOl0_PC3jNUt" 
+            <!-- Hindu Wedding Card - LEFT SIDE -->
+            <a href="#hindu-wedding" class="wedding-card hindu-wedding">
+                <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
                      alt="Traditional Kerala Hindu Wedding" 
                      loading="lazy">
                 <div class="card-overlay">
@@ -557,14 +552,26 @@
                 </div>
             </a>
             
-            <!-- Christian Wedding Card now comes second -->
-            <a href="#christian-wedding" class="wedding-card">
-                <img src="https://lh3.googleusercontent.com/d/1LTUWO9rKlBJA2V76t5OqjnW4TD_Pc5Y5" 
+            <!-- Christian Wedding Card - RIGHT SIDE -->
+            <a href="#christian-wedding" class="wedding-card christian-wedding">
+                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
                      alt="Traditional Kerala Christian Wedding" 
                      loading="lazy">
                 <div class="card-overlay">
                     <h2 class="card-title">Christian Wedding</h2>
                     <div class="card-subtitle">St. George Church Veloor</div>
+                </div>
+            </a>
+        </div>
+            
+            <a href="#hindu-wedding" class="wedding-card">
+                <!-- Authentic Kerala Hindu Wedding Image -->
+                <img src="https://lh3.googleusercontent.com/d/1LTUWO9rKlBJA2V76t5OqjnW4TD_Pc5Y5" 
+                     alt="Traditional Kerala Hindu Wedding" 
+                     loading="lazy">
+                <div class="card-overlay">
+                    <h2 class="card-title">Hindu Wedding</h2>
+                    <div class="card-subtitle">Anjali Auditorium, Omallur</div>
                 </div>
             </a>
         </div>
@@ -598,7 +605,7 @@
                 <div class="detail-item text-center">
                     <div class="detail-label">Church Ceremony</div>
                     <p>
-                        <a href="https://maps.app.goo.gl/rKP9cxHQo974gT8b8" class="location-link" target="_blank" rel="noopener noreferrer">
+                        <a href="https://maps.app.goo.gl/examplechristian" class="location-link" target="_blank" rel="noopener noreferrer">
                             St. George Church Veloor
                         </a>
                     </p>
@@ -607,7 +614,7 @@
                 <div class="detail-item text-center">
                     <div class="detail-label">Reception to Follow</div>
                     <p>
-                        <a href="https://maps.app.goo.gl/eHy12sAANLi8e3uX6" class="location-link" target="_blank" rel="noopener noreferrer">
+                        <a href="https://maps.app.goo.gl/examplereception" class="location-link" target="_blank" rel="noopener noreferrer">
                             St. George Parish Hall Cheruthotukunnel
                         </a>
                     </p>
@@ -643,7 +650,7 @@
                 <div class="detail-item text-center">
                     <div class="detail-label">Venue</div>
                     <p>
-                        <a href="https://maps.app.goo.gl/bnsh4XEAk1mm5X8z6" class="location-link" target="_blank" rel="noopener noreferrer">
+                        <a href="https://maps.app.goo.gl/examplehindu" class="location-link" target="_blank" rel="noopener noreferrer">
                             Anjali Auditorium, Omallur, Pathanamthitta
                         </a>
                     </p>
