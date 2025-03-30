@@ -113,6 +113,7 @@
             gap: 30px;
             justify-content: center;
             margin-bottom: 60px;
+            flex-direction: row-reverse; /* This reverses the order of the countdown boxes */
         }
         
         .countdown-box {
@@ -192,6 +193,7 @@
             justify-content: center;
             gap: 40px;
             margin-bottom: 80px;
+            flex-direction: row-reverse; /* This reverses the order of the wedding cards */
         }
         
         .wedding-card {
@@ -460,33 +462,10 @@
             <div class="divider"></div>
         </header>
         
-        <!-- Countdown Section -->
+        <!-- Countdown Section - Order reversed -->
         <section class="countdown-section">
             <div class="countdown-container">
-                <div class="countdown-box">
-                    <div class="countdown-title">Christian Wedding</div>
-                    <div class="countdown">
-                        <div class="countdown-item">
-                            <div class="countdown-number" id="christian-days">00</div>
-                            <div class="countdown-label">Days</div>
-                        </div>
-                        <div class="countdown-item">
-                            <div class="countdown-number" id="christian-hours">00</div>
-                            <div class="countdown-label">Hours</div>
-                        </div>
-                        <div class="countdown-item">
-                            <div class="countdown-number" id="christian-minutes">00</div>
-                            <div class="countdown-label">Minutes</div>
-                        </div>
-                    </div>
-                    <div class="wedding-date">
-                        <div class="month">MAY</div>
-                        <div class="day">4</div>
-                        <div class="year">2025</div>
-                        <div class="time">11:00 AM</div>
-                    </div>
-                </div>
-                
+                <!-- Hindu Wedding Countdown now comes first -->
                 <div class="countdown-box">
                     <div class="countdown-title">Hindu Wedding</div>
                     <div class="countdown">
@@ -510,30 +489,55 @@
                         <div class="time">12:35 PM</div>
                     </div>
                 </div>
+                
+                <!-- Christian Wedding Countdown now comes second -->
+                <div class="countdown-box">
+                    <div class="countdown-title">Christian Wedding</div>
+                    <div class="countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="christian-days">00</div>
+                            <div class="countdown-label">Days</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="christian-hours">00</div>
+                            <div class="countdown-label">Hours</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="christian-minutes">00</div>
+                            <div class="countdown-label">Minutes</div>
+                        </div>
+                    </div>
+                    <div class="wedding-date">
+                        <div class="month">MAY</div>
+                        <div class="day">4</div>
+                        <div class="year">2025</div>
+                        <div class="time">11:00 AM</div>
+                    </div>
+                </div>
             </div>
         </section>
         
-        <!-- Wedding Options -->
+        <!-- Wedding Options - Order reversed -->
         <div class="wedding-options">
-            <a href="#christian-wedding" class="wedding-card">
-                <!-- Authentic Kerala Christian Wedding Image -->
-                <img src="https://lh3.googleusercontent.com/d/19X0BVlUrlaBokhJc-2eUxOl0_PC3jNUt" 
-                     alt="Traditional Kerala Christian Wedding" 
-                     loading="lazy">
-                <div class="card-overlay">
-                    <h2 class="card-title">Christian Wedding</h2>
-                    <div class="card-subtitle">St. George Church Veloor</div>
-                </div>
-            </a>
-            
+            <!-- Hindu Wedding Card now comes first -->
             <a href="#hindu-wedding" class="wedding-card">
-                <!-- Authentic Kerala Hindu Wedding Image -->
-                <img src="https://lh3.googleusercontent.com/d/1LTUWO9rKlBJA2V76t5OqjnW4TD_Pc5Y5" 
+                <img src="https://lh3.googleusercontent.com/d/19X0BVlUrlaBokhJc-2eUxOl0_PC3jNUt" 
                      alt="Traditional Kerala Hindu Wedding" 
                      loading="lazy">
                 <div class="card-overlay">
                     <h2 class="card-title">Hindu Wedding</h2>
                     <div class="card-subtitle">Anjali Auditorium, Omallur</div>
+                </div>
+            </a>
+            
+            <!-- Christian Wedding Card now comes second -->
+            <a href="#christian-wedding" class="wedding-card">
+                <img src="https://lh3.googleusercontent.com/d/1LTUWO9rKlBJA2V76t5OqjnW4TD_Pc5Y5" 
+                     alt="Traditional Kerala Christian Wedding" 
+                     loading="lazy">
+                <div class="card-overlay">
+                    <h2 class="card-title">Christian Wedding</h2>
+                    <div class="card-subtitle">St. George Church Veloor</div>
                 </div>
             </a>
         </div>
