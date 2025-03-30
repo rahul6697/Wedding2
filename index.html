@@ -22,22 +22,40 @@
         
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--light-bg);
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            background-color: var(--light-bg);
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" opacity="0.05"><path d="M30,50 Q50,30 70,50 T90,50" fill="none" stroke="%23d4a373" stroke-width="1"/></svg>');
+            background-size: 150px;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
+            position: relative;
+        }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" opacity="0.03"><path d="M50,0 Q100,50 50,100 Q0,50 50,0Z" fill="%23b6452c"/></svg>');
+            background-size: 200px;
+            background-repeat: repeat;
+            z-index: -1;
+            opacity: 0.1;
         }
         
         header {
             text-align: center;
             margin-bottom: 60px;
             animation: fadeIn 1s ease forwards;
+            position: relative;
         }
         
         @keyframes fadeIn {
@@ -52,6 +70,7 @@
             color: var(--gold);
             margin-bottom: 10px;
             letter-spacing: 2px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
         }
         
         .subtitle {
@@ -66,12 +85,26 @@
             height: 1px;
             background: var(--gold);
             margin: 20px auto;
+            position: relative;
+        }
+        
+        .divider::after {
+            content: "✿";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--light-bg);
+            padding: 0 10px;
+            color: var(--gold);
+            font-size: 1rem;
         }
         
         /* Countdown Section */
         .countdown-section {
             margin: 60px auto;
             max-width: 800px;
+            position: relative;
         }
         
         .countdown-container {
@@ -90,6 +123,18 @@
             width: 100%;
             max-width: 350px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .countdown-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--gold), var(--dark-gold));
         }
         
         .countdown-title {
@@ -110,6 +155,18 @@
             padding: 15px 10px;
             border-radius: 5px;
             min-width: 70px;
+            position: relative;
+        }
+        
+        .countdown-item::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 2px;
+            background: var(--gold);
         }
         
         .countdown-number {
@@ -124,6 +181,8 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--text);
+            margin-top: 5px;
+            display: block;
         }
         
         /* Wedding Options */
@@ -144,6 +203,12 @@
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
+            border: 1px solid rgba(212, 163, 115, 0.3);
+        }
+        
+        .wedding-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
         
         .wedding-card img {
@@ -151,6 +216,11 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .wedding-card:hover img {
+            transform: scale(1.05);
         }
         
         .card-overlay {
@@ -158,7 +228,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
             padding: 30px;
             color: white;
         }
@@ -198,6 +268,18 @@
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             margin-bottom: 40px;
+            position: relative;
+            border: 1px solid rgba(212, 163, 115, 0.2);
+        }
+        
+        .detail-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--gold), var(--dark-gold));
         }
         
         .detail-item {
@@ -208,6 +290,7 @@
             font-weight: bold;
             color: #777;
             margin-bottom: 5px;
+            font-size: 0.9rem;
         }
         
         .text-center {
@@ -247,9 +330,17 @@
         /* Hindu Theme */
         .hindu-theme {
             background: var(--cream);
-            border-top: 3px solid var(--gold);
-            border-bottom: 3px solid var(--gold);
             position: relative;
+        }
+        
+        .hindu-theme::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--gold), var(--dark-gold));
         }
         
         /* Location Links */
@@ -258,15 +349,21 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .location-link::before {
+            content: "📍";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
         }
         
         .location-link:hover {
             color: var(--gold);
             text-decoration: underline;
-        }
-        
-        .pin-emoji {
-            margin-left: 5px;
         }
         
         /* Maps */
@@ -275,6 +372,7 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(212, 163, 115, 0.3);
         }
         
         .map-container iframe {
@@ -295,25 +393,29 @@
         /* Back Button */
         .back-btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 25px;
             background: var(--gold);
             color: white;
             text-decoration: none;
             border-radius: 5px;
             margin-top: 20px;
             transition: all 0.3s ease;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
         }
         
         .back-btn:hover {
             background: var(--dark-gold);
             transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
         }
         
         footer {
             text-align: center;
             margin-top: 80px;
             padding-top: 30px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid rgba(212, 163, 115, 0.3);
             color: #999;
             font-size: 0.9rem;
         }
@@ -338,6 +440,14 @@
             
             .countdown-number {
                 font-size: 1.5rem;
+            }
+            
+            .wedding-details h2 {
+                font-size: 2rem;
+            }
+            
+            .detail-section {
+                padding: 30px 20px;
             }
         }
     </style>
@@ -407,7 +517,7 @@
         <div class="wedding-options">
             <a href="#christian-wedding" class="wedding-card">
                 <!-- Authentic Kerala Christian Wedding Image -->
-                <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
                      alt="Traditional Kerala Christian Wedding" 
                      loading="lazy">
                 <div class="card-overlay">
@@ -457,9 +567,8 @@
                 <div class="detail-item text-center">
                     <div class="detail-label">Church Ceremony</div>
                     <p>
-                        <a href="https://maps.app.goo.gl/oBDnzvcxcf3JubZL8" class="location-link" target="_blank">
+                        <a href="https://maps.app.goo.gl/rKP9cxHQo974gT8b8" class="location-link" target="_blank" rel="noopener noreferrer">
                             St. George Church Veloor
-                            <span class="pin-emoji">📍</span>
                         </a>
                     </p>
                 </div>
@@ -467,9 +576,8 @@
                 <div class="detail-item text-center">
                     <div class="detail-label">Reception to Follow</div>
                     <p>
-                        <a href="https://maps.app.goo.gl/oWh275gny835ueWj8" class="location-link" target="_blank">
+                        <a href="https://maps.app.goo.gl/eHy12sAANLi8e3uX6" class="location-link" target="_blank" rel="noopener noreferrer">
                             St. George Parish Hall Cheruthotukunnel
-                            <span class="pin-emoji">📍</span>
                         </a>
                     </p>
                 </div>
@@ -504,9 +612,8 @@
                 <div class="detail-item text-center">
                     <div class="detail-label">Venue</div>
                     <p>
-                        <a href="https://maps.app.goo.gl/WKiYaprE2fUUn4An9" target="_blank">
+                        <a href="https://maps.app.goo.gl/bnsh4XEAk1mm5X8z6" class="location-link" target="_blank" rel="noopener noreferrer">
                             Anjali Auditorium, Omallur, Pathanamthitta
-                            <span class="pin-emoji">📍</span>
                         </a>
                     </p>
                 </div>
