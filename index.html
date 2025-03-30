@@ -110,10 +110,23 @@
         .countdown-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 30px;
             justify-content: center;
+            gap: 30px;
             margin-bottom: 60px;
-            flex-direction: row-reverse; /* This reverses the order of the countdown boxes */
+        }
+
+        /* Make sure Hindu wedding appears on left and Christian on right */
+        .countdown-box, .wedding-card {
+            flex-basis: calc(50% - 15px);    /* Adjust as needed to fit the card perfectly in half of screen. Change '15px' based on your design requirements. */
+            order: initial !important;   /* This will remove the media query and force a new layout for all devices */
+        }
+        
+        .wedding-card.hindu-wedding {
+            order: 1;
+        }
+        
+        .wedding-card.christian-wedding {
+            order: 2;
         }
         
         .countdown-box {
@@ -193,8 +206,22 @@
             justify-content: center;
             gap: 40px;
             margin-bottom: 80px;
-            flex-direction: row-reverse; /* This reverses the order of the wedding cards */
         }
+        
+        /* Hindu wedding card on left */
+        .wedding-card.hindu-wedding {
+            order: 1;
+        }
+        
+        /* Christian wedding card on right */
+        .wedding-card.christian-wedding {
+            order: 2;
+        }
+        
+        @media (max-width: 768px) {
+            .countdown-box, .wedding-card {
+                flex-basis: 100%;    /* Stack vertically on mobile */
+            }
         
         .wedding-card {
             width: 100%;
